@@ -27,6 +27,7 @@ const data = {
 class App extends Component {
   updateSelection = (event) => {
     console.log(`Selected value '${event.target.value}' should be saved to the local state`)
+    this.setState({value: event.target.value})
   }
 
   renderMenu = () => {
