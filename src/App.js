@@ -25,9 +25,13 @@ const data = {
 }
 
 class App extends Component {
+  updateSelection = (event) => {
+    console.log(`Selected value '${event.target.value}' should be saved to the local state`)
+  }
+
   renderMenu = () => {
     return(
-      <select>
+      <select onChange={this.updateSelection}>
         <option value="">-- pick a model --</option>
         { Object.keys(data).map(model =>
           <option value={model}>{`${model} (${data[model].year})`}</option>
