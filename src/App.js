@@ -27,16 +27,17 @@ const data = {
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {value: ''}
+    this.state = {selectedModel: ''}
   }
 
   updateSelection = (event) => {
-    this.setState({value: event.target.value})
+    this.setState({selectedModel: event.target.value})
+    console.log('Selected model:', event.target.value)
   }
 
   renderMenu = () => {
     return(
-      <select value={this.state.value} onChange={this.updateSelection}>
+      <select value={this.state.selectedModel} onChange={this.updateSelection}>
         <option value="">-- pick a model --</option>
         { Object.keys(data).map(model =>
           <option value={model}>{`${model} (${data[model].year})`}</option>
@@ -49,6 +50,7 @@ class App extends Component {
     return (
       <div className="App">
         { this.renderMenu() }
+        <button>Add</button>
       </div>
     );
   }
