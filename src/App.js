@@ -30,7 +30,7 @@ class App extends Component {
       <select>
         <option value="">-- pick a model --</option>
         { Object.keys(data).map(model =>
-          <option value={model}>{model} ({data[model].year})</option>
+          <option value={model}>{`${model} (${data[model].year})`}</option>
         )}
       </select>
     )
