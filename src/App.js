@@ -25,6 +25,17 @@ const data = {
 }
 
 class App extends Component {
+  renderMenu = () => {
+    const models = Object.keys(data)
+    return(
+      <select>
+        <option value="">-- pick a model --</option>
+        { models.map(model =>
+          <option value={model}>{model} ({data[model].year})</option>
+        )}
+      </select>
+    )
+  }
   /*
   <!-- Expected Output -->
   <select>
@@ -38,6 +49,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        { this.renderMenu() }
       </div>
     );
   }
