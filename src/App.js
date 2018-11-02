@@ -31,7 +31,6 @@ class App extends Component {
   }
 
   updateSelection = (event) => {
-    console.log(`Selected value '${event.target.value}' should be saved to the local state`)
     this.setState({value: event.target.value})
   }
 
@@ -46,12 +45,7 @@ class App extends Component {
     )
   }
 
-  componentDidMount() {
-    console.log("Component did mount")
-  }
-
   render() {
-    console.log("Rendering App")
     return (
       <div className="App">
         { this.renderMenu() }
