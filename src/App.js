@@ -25,6 +25,11 @@ const data = {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {value: ''}
+  }
+
   updateSelection = (event) => {
     console.log(`Selected value '${event.target.value}' should be saved to the local state`)
     this.setState({value: event.target.value})
@@ -32,7 +37,7 @@ class App extends Component {
 
   renderMenu = () => {
     return(
-      <select onChange={this.updateSelection}>
+      <select value={this.state.value} onChange={this.updateSelection}>
         <option value="">-- pick a model --</option>
         { Object.keys(data).map(model =>
           <option value={model}>{`${model} (${data[model].year})`}</option>
@@ -41,7 +46,12 @@ class App extends Component {
     )
   }
 
+  componentDidMount() {
+    console.log("Component did mount")
+  }
+
   render() {
+    console.log("Rendering App")
     return (
       <div className="App">
         { this.renderMenu() }
