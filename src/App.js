@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux'
 import {addModel} from './actions/models'
-import {ADD_MODEL} from './actions/models';
 
 const data = {
   "Ivel Z3": {
