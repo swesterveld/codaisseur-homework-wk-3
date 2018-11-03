@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux'
+import {addModel} from './actions/models'
 import {ADD_MODEL} from './actions/models';
 
 const data = {
@@ -52,10 +53,7 @@ class App extends Component {
     console.log('Button clicked')
     const model = data[this.state.selectedModel]
     console.log('Model:', model)
-    this.props.dispatch({
-      type: ADD_MODEL,
-      payload: model
-    })
+    this.props.addModel(model)
   }
 
   render() {
@@ -70,4 +68,4 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({selectedModel: state.selectedModel})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,{addModel})(App);
