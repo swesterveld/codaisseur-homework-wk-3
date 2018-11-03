@@ -35,7 +35,6 @@ class App extends Component {
 
   updateSelection = (event) => {
     this.setState({selectedModel: event.target.value})
-    console.log('Selected model:', event.target.value)
   }
 
   renderMenu = () => {
@@ -53,9 +52,11 @@ class App extends Component {
   }
 
   buttonHandler = () => {
-    console.log('Button clicked')
-    const model = data[this.state.selectedModel]
-    console.log('Model:', model)
+    const model = {
+      name: this.state.selectedModel,
+      ...data[this.state.selectedModel]
+    }
+    //console.log('Triggered buttonHandler for model:', model)
     this.props.addModel(model)
   }
 
