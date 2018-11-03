@@ -56,7 +56,6 @@ class App extends Component {
       name: this.state.selectedModel,
       ...data[this.state.selectedModel]
     }
-    //console.log('Triggered buttonHandler for model:', model)
     this.props.addModel(model)
   }
 

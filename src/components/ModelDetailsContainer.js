@@ -5,7 +5,6 @@ import {addModel} from "../actions/models"
 
 class ModelDetailsContainer extends React.Component {
   render() {
-    //console.log("Rendering ModelDetails from its Container with props:", this.props.modelDetails)
     return this.props.modelDetails.map(model => {
       return <ModelDetails model={model} />
     })

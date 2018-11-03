@@ -3,7 +3,6 @@ import * as React from 'react'
 export default function ModelDetails(props) {
 
   const model= props.model|| []
-  //console.log("Rendering ModelDetails from itself with props:", props)
   return (<div>
       <ul>
         <li>Name: {model.name}</li>
