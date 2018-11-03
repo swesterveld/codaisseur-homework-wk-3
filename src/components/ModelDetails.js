@@ -1,14 +1,20 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 
 export default function ModelDetails(props) {
-
-  const model= props.model|| []
   return (<div>
       <ul>
-        <li>Name: {model.name}</li>
-        <li>Manufacturer: {model.manufacturer}</li>
-        <li>Year: {model.year}</li>
-        <li>Origin: {model.origin}</li>
+        <li>Name: {props.name}</li>
+        <li>Manufacturer: {props.manufacturer}</li>
+        <li>Year: {props.year}</li>
+        <li>Origin: {props.origin}</li>
       </ul>
   </div>)
+}
+
+ModelDetails.propTypes = {
+  name: PropTypes.string.isRequired,
+  manufacturer: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  origin: PropTypes.string.isRequired
 }
