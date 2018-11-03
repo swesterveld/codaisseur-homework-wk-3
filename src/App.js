@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import {connect} from 'react-redux'
+import {ADD_MODEL} from './actions/models';
 
 const data = {
   "Ivel Z3": {
@@ -48,6 +50,12 @@ class App extends Component {
 
   buttonHandler = () => {
     console.log('Button clicked')
+    const model = data[this.state.selectedModel]
+    console.log('Model:', model)
+    this.props.dispatch({
+      type: ADD_MODEL,
+      payload: model
+    })
   }
 
   render() {
@@ -60,4 +68,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({selectedModel: state.selectedModel})
+
+export default connect(mapStateToProps)(App);
