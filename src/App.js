@@ -42,7 +42,7 @@ class App extends Component {
       <select value={this.state.selectedModel} onChange={this.updateSelection}>
         <option value="">-- pick a model --</option>
         { Object.keys(data).map(model =>
-          <option value={model}>{`${model} (${data[model].year})`}</option>
+          <option key={model} value={model}>{`${model} (${data[model].year})`}</option>
         )}
       </select>
     )

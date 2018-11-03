@@ -5,8 +5,8 @@ import {addModel} from "../actions/models"
 
 class ModelDetailsContainer extends React.Component {
   render() {
-    return this.props.modelDetails.map(model => {
-      return <ModelDetails {...model} />
+    return this.props.modelDetails.map((model,index) => {
+      return <ModelDetails key={index} {...model} />
     })
   }
 }
