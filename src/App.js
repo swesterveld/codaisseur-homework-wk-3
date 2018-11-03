@@ -39,15 +39,12 @@ class App extends Component {
 
   renderMenu = () => {
     return(
-      <div>
-        <ModelDetailsContainer/>
-        <select value={this.state.selectedModel} onChange={this.updateSelection}>
-          <option value="">-- pick a model --</option>
-          { Object.keys(data).map(model =>
-            <option value={model}>{`${model} (${data[model].year})`}</option>
-          )}
-        </select>
-      </div>
+      <select value={this.state.selectedModel} onChange={this.updateSelection}>
+        <option value="">-- pick a model --</option>
+        { Object.keys(data).map(model =>
+          <option value={model}>{`${model} (${data[model].year})`}</option>
+        )}
+      </select>
     )
   }
 
@@ -62,8 +59,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.renderMenu() }
-        <button onClick={() => this.buttonHandler()}>Add</button>
+        <div>
+          <ModelDetailsContainer/>
+        </div>
+        <div>
+          { this.renderMenu() }
+          <button onClick={() => this.buttonHandler()}>Add</button>
+        </div>
       </div>
     );
   }
