@@ -46,11 +46,15 @@ class App extends Component {
     )
   }
 
+  buttonHandler = () => {
+    console.log('Button clicked')
+  }
+
   render() {
     return (
       <div className="App">
         { this.renderMenu() }
-        <button>Add</button>
+        <button onClick={() => this.buttonHandler()}>Add</button>
       </div>
     );
   }
