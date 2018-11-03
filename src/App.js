@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux'
 import {addModel} from './actions/models'
+import ModelDetailsContainer from './components/ModelDetailsContainer'
 
 const data = {
   "Ivel Z3": {
@@ -39,12 +40,15 @@ class App extends Component {
 
   renderMenu = () => {
     return(
-      <select value={this.state.selectedModel} onChange={this.updateSelection}>
-        <option value="">-- pick a model --</option>
-        { Object.keys(data).map(model =>
-          <option value={model}>{`${model} (${data[model].year})`}</option>
-        )}
-      </select>
+      <div>
+        <ModelDetailsContainer/>
+        <select value={this.state.selectedModel} onChange={this.updateSelection}>
+          <option value="">-- pick a model --</option>
+          { Object.keys(data).map(model =>
+            <option value={model}>{`${model} (${data[model].year})`}</option>
+          )}
+        </select>
+      </div>
     )
   }
 
